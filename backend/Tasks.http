@@ -1,0 +1,37 @@
+@baseUrl = https://localhost:7237
+@projectId = 1
+@taskId = 1
+
+### Filtered task page
+GET {{baseUrl}}/api/projects/{{projectId}}/tasks?status=To%20Do&priority=High&search=demo&page=1&pageSize=10
+Authorization: Bearer {{$dotenv FIREBASE_ID_TOKEN}}
+
+### Create a task
+POST {{baseUrl}}/api/projects/{{projectId}}/tasks
+Authorization: Bearer {{$dotenv FIREBASE_ID_TOKEN}}
+Content-Type: application/json
+
+{"title":"Demo task","status":"To Do","priority":"High"}
+
+### Task details
+GET {{baseUrl}}/api/tasks/{{taskId}}
+Authorization: Bearer {{$dotenv FIREBASE_ID_TOKEN}}
+
+### Replace task fields and move it
+PUT {{baseUrl}}/api/tasks/{{taskId}}
+Authorization: Bearer {{$dotenv FIREBASE_ID_TOKEN}}
+Content-Type: application/json
+
+{"title":"Demo task","status":"In Progress","priority":"High"}
+
+### Open or renew Firestore comment access
+POST {{baseUrl}}/api/tasks/{{taskId}}/comment-access
+Authorization: Bearer {{$dotenv FIREBASE_ID_TOKEN}}
+
+### Overdue report
+GET {{baseUrl}}/api/reports/overdue-by-user
+Authorization: Bearer {{$dotenv FIREBASE_ID_TOKEN}}
+
+### Delete the demo task
+DELETE {{baseUrl}}/api/tasks/{{taskId}}
+Authorization: Bearer {{$dotenv FIREBASE_ID_TOKEN}}
