@@ -1,0 +1,27 @@
+@baseUrl = https://localhost:7000
+@projectId = 1
+
+### 401 — missing token
+GET {{baseUrl}}/api/projects
+
+### 200 — only current owner's projects
+GET {{baseUrl}}/api/projects
+Authorization: Bearer {{$dotenv FIREBASE_ID_TOKEN}}
+
+### 201 — create project and return its Location
+POST {{baseUrl}}/api/projects
+Authorization: Bearer {{$dotenv FIREBASE_ID_TOKEN}}
+Content-Type: application/json
+
+{"name":"Assignment board","description":"Track project tasks"}
+
+### 400 — invalid project name
+POST {{baseUrl}}/api/projects
+Authorization: Bearer {{$dotenv FIREBASE_ID_TOKEN}}
+Content-Type: application/json
+
+{"name":" "}
+
+### 200 for the owner; 404 for another account or a missing project
+GET {{baseUrl}}/api/projects/{{projectId}}
+Authorization: Bearer {{$dotenv FIREBASE_ID_TOKEN}}
