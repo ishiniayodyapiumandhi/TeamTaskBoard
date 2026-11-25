@@ -109,7 +109,7 @@ function App() {
   if (session.loading) return <main><State loading>Checking session…</State></main>
   return <>
     <header className="topbar"><div className="topbar-inner"><Link className="brand" to="/projects">
-      <span className="brand-symbol"><Icon name="board" /></span><span>Team Task Board</span></Link>{user && <nav aria-label="Workspace">
+      <span className="brand-symbol"><Icon name="board" /></span><span>TeamFlow</span></Link>{user && <nav aria-label="Workspace">
       <Link className="nav-link" to="/projects">Projects</Link><button className="logout" onClick={() => {
       setError(''); signOut(auth).catch(cause => setError(cause.message))
     }}><Icon name="logout" />Log out</button></nav>}</div></header>

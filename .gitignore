@@ -10,3 +10,15 @@ dist/
 *service-account*.json
 npm-debug.log*
 firebase-debug.log*
+**/backups/
+*.bak
+*.dump
+*.sql.gz
+*.sql.zip
+*backup*.sql
+*.pem
+*.key
+*.pfx
+*.p12
+*credentials*.json
+TestResults/

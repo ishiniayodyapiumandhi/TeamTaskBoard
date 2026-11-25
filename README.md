@@ -1,6 +1,10 @@
-# Team Task Board
+# TeamFlow
 
-Team Task Board is a full-stack internship assignment for organizing projects, moving tasks through a Kanban board, and discussing work in realtime. Sign in to create a project, track tasks in **To Do**, **In Progress**, or **Done**, and review overdue work by assignee.
+**Collaborative Project Management Platform** · Evolving from the Team Task Board internship assignment.
+
+Sign in to organize projects, move tasks through **To Do**, **In Progress**, and **Done**, discuss work in realtime, and review overdue work by assignee. Phase 0 changes the branding and engineering foundation only: projects and comments still belong to their existing owners, and shared workspaces are not enabled.
+
+[Architecture](docs/architecture.md) · [Roadmap](docs/roadmap.md) · [Database migrations and recovery](docs/database-migrations.md)
 
 - **Frontend:** React, Vite, React Router, and responsive CSS. The board supports title search, priority filters, and pagination by status.
 - **Backend:** ASP.NET Core 10 Web API with controllers, services, DTOs, and EF Core.
@@ -102,7 +106,7 @@ npm --prefix frontend test
 npm --prefix frontend run build
 ```
 
-**Recorded results:** Both builds passed. **25 backend checks passed**: 23 offline and 2 live MySQL checks. The database checks verified dated and undated task round-trips and that overdue counts exclude completed, future, unassigned, and undated tasks. **8 frontend tests passed.**
+**Team Task Board baseline results:** Both builds passed. **25 backend checks passed**: 23 offline and 2 live MySQL checks. The database checks verified dated and undated task round-trips and that overdue counts exclude completed, future, unassigned, and undated tasks. **8 frontend tests passed.** GitHub Actions runs the offline checks and builds without Firebase credentials or a database.
 
 **Live checks passed:** Two Firebase accounts passed the API smoke test with comment-access checks. Manual checks confirmed mobile layout, logout and protected-route redirects, and two-tab realtime comments without refresh. Firestore Rules Playground denied account B's read of account A's comment and denied account A's attempt to update its own access grant.
 
